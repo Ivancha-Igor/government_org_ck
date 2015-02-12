@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'pages/home'
+
   get 'sessions/login'
   get 'sessions/logout'
   post 'sessions' => 'sessions#create'
