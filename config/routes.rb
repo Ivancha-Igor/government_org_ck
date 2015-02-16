@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'pages/home'
+  root 'pages#home'
 
   get 'sessions/login'
   get 'sessions/logout'
