@@ -4,7 +4,11 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all
+    if params[:tag].present?
+      @organizations = Organization.tagged_with(params[:tag])
+    else
+      @organizations = Organization.all
+    end
   end
 
   # GET /organizations/1
@@ -69,6 +73,6 @@ class OrganizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:title, :description, :address, :phone, :email)
+      params.require(:organization).permit(:title, :description, :address, :phone, :email, :all_tags)
     end
 end

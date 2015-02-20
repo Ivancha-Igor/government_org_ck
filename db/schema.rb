@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216161602) do
+ActiveRecord::Schema.define(version: 20150218114112) do
+
+  create_table "organization_tags", force: :cascade do |t|
+    t.integer  "organization_id"
+    t.integer  "tag_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "organization_tags", ["organization_id"], name: "index_organization_tags_on_organization_id"
+  add_index "organization_tags", ["tag_id"], name: "index_organization_tags_on_tag_id"
 
   create_table "organizations", force: :cascade do |t|
     t.string   "title"
@@ -23,13 +33,20 @@ ActiveRecord::Schema.define(version: 20150216161602) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name"
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "admin",           default: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end

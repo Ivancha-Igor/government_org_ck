@@ -15,14 +15,8 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to 'Главная', pages_home_path %></li>
-        <li><%= link_to 'Организации', organization_path(:id) %></li>
+        <li><%= link_to 'Организации', organizations_path %></li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Вход', sessions_login_path %></li>
         <li><%= link_to 'Регистрация', registration_path %></li>

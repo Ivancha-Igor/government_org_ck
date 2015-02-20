@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'registration' => 'users#new', as: 'registration'
   post 'users' => 'users#create'
 
+  get 'tags/:tag', to: 'organizations#index', as: 'tag'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
