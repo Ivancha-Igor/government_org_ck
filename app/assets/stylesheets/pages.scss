@@ -6,10 +6,8 @@
   height: 100%;
   display: table;
   position: relative;
-  background-image: image_url('che2.jpg');
-  background-repeat: no-repeat;
+  background: url('che2.jpg') center center no-repeat;
   background-size: cover;
-  background-position: center center;
   .text-vertical-center {
     display: table-cell;
     text-align: center;
