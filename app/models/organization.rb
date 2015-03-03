@@ -29,4 +29,12 @@ class Organization < ActiveRecord::Base
   def self.tagged_with(name)
     Tag.find_by_name!(name).organizations
   end
+
+  def self.search(search)
+    if search
+      where('title LIKE ?', "%#{search}%")
+    else
+      all
+    end
+  end
 end

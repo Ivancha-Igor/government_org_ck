@@ -1,0 +1,14 @@
+<% if params[:search].present? %>
+  <% @organizations.each do |organization| %>
+    <%= link_to organization do %>
+      <div class="well">
+
+        <div class="row">
+          <div class="">
+            <h4><%= organization.title %></small></h4>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

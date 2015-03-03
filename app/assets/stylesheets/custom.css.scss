@@ -7,3 +7,12 @@
   vertical-align: middle;
 }
 
+#live-search-form{
+  position: relative;
+  #live-search-results{
+    position: absolute;
+    div{
+      width: 180px;
+    }
+  }
+}
