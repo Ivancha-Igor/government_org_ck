@@ -30,11 +30,5 @@ class Organization < ActiveRecord::Base
     Tag.find_by_name!(name).organizations
   end
 
-  def self.search(search)
-    if search
-      where('title LIKE ?', "%#{search}%")
-    else
-      all
-    end
-  end
+  scope :search, -> search { joins(:tags).where('title LIKE ? OR tags.name LIKE ?', "%#{search}%", "%#{search}%").uniq}
 end

@@ -3,6 +3,10 @@ class PagesController < ApplicationController
   end
 
   def search
-    @organizations = Organization.search(params[:search])
+    if params[:search].present?
+      @organizations = Organization.search(params[:search])
+    else
+      @organizations = Organization.all
+    end
   end
 end
