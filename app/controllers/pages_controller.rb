@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def home
   end
 
@@ -9,4 +10,5 @@ class PagesController < ApplicationController
       @organizations = Organization.all
     end
   end
+
 end

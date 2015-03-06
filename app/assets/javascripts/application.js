@@ -22,10 +22,12 @@ ready = function () {
             $.get($("#live-search-form").attr("action"), $("#live-search-form").serialize(), null, "script");
             return false;
         });
+        $('#live-search-form input').attr("autocomplete", "off");
     });
 };
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+$(document).on('page:change', ready);
 
 
