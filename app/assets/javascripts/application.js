@@ -15,6 +15,17 @@
 //= require turbolinks
 //= require_tree .
 
+var ready;
+ready = function () {
+    $(function() {
+        $("#live-search-form input").keyup(function() {
+            $.get($("#live-search-form").attr("action"), $("#live-search-form").serialize(), null, "script");
+            return false;
+        });
+    });
+};
 
+$(document).ready(ready);
+$(document).on('page:load', ready);
 
 

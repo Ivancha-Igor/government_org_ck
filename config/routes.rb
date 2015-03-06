@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'organizations#index', as: 'tag'
 
+  get 'search' => 'pages#search', as: 'search'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
