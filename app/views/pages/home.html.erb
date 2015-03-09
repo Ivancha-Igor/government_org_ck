@@ -45,17 +45,6 @@
         map = new google.maps.Map(document.getElementById('map-canvas'),
                 mapOptions);
 
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(49.443772, 32.065901),
-            map: map,
-            title: 'Главное управления Миндоходов Черкасской области'
-        });
-        var infowindow = new google.maps.InfoWindow({
-            content: 'Главное управления Миндоходов Черкасской области'
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(marker.get('map'), marker);
-        });
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);

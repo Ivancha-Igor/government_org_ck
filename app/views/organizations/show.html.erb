@@ -30,5 +30,17 @@
   <%= @organization.all_tags %>
 </p>
 
+<p>
+  <strong>Latitude</strong>
+  <span id="organization_lat"><%= @organization.latitude %></span>
+</p>
+
+<p>
+  <strong>Longitude</strong>
+  <span id="organization_lng"><%= @organization.longitude %></span>
+</p>
+
+<%= render 'gmap_show' %>
+
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>
