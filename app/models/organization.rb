@@ -17,7 +17,7 @@ class Organization < ActiveRecord::Base
   has_many :tags, through: :organization_tags
 
   reverse_geocoded_by :latitude, :longitude
-  after_validation :reverse_geocode
+  after_validation :geocode
 
   def all_tags=(names)
     self.tags = names.split(',').map do |name|

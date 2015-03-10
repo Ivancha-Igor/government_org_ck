@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    @organizations = Organization.all
   end
 
   def search

@@ -8,7 +8,7 @@
 
     function initialize() {
         var mapOptions = {
-            zoom: 15,
+            zoom: 14,
             center: cherkassy
         };
         var map = new google.maps.Map(document.getElementById('gmap'),mapOptions);
@@ -44,6 +44,6 @@
             marker.setAnimation(google.maps.Animation.BOUNCE);
         }
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, 'page:load', initialize);
 
 </script>
