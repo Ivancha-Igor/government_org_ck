@@ -1,46 +1,55 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @organization.title %>
-</p>
+<div class="row-fluid">
+  <div class="col-sm-5">
+    <ul class="list-group">
+      <li class="list-group-item">
+        <b>Название:</b>
+        <%= @organization.title %>
+      </li>
 
-<p>
-  <strong>Description:</strong>
-  <%= @organization.description %>
-</p>
+      <li class="list-group-item">
+        <b>Описание:</b>
+        <%= @organization.description %>
+      </li>
 
-<p>
-  <strong>Address:</strong>
-  <%= @organization.address %>
-</p>
+      <li class="list-group-item">
+        <b>Адрес:</b>
+        <%= @organization.address %>
+      </li>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @organization.phone %>
-</p>
+      <li class="list-group-item">
+        <b>Телефон:</b>
+        <%= @organization.phone %>
+      </li>
 
-<p>
-  <strong>Email:</strong>
-  <%= @organization.email %>
-</p>
+      <li class="list-group-item">
+        <b>Имейл:</b>
+        <%= @organization.email %>
+      </li>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @organization.all_tags %>
-</p>
+      <li class="list-group-item">
+        <b>Все теги:</b>
+        <%= @organization.all_tags %>
+      </li>
+      <li class="list-group-item">
+        <b>Широта:</b>
+        <span id="organization_lat"><%= @organization.latitude %></span>
+      </li>
 
-<p>
-  <strong>Latitude</strong>
-  <span id="organization_lat"><%= @organization.latitude %></span>
-</p>
+      <li class="list-group-item">
+        <b>Долгота:</b>
+        <span id="organization_lng"><%= @organization.longitude %></span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-7">
+    <%= render 'gmap_show' %>
+  </div>
+</div>
 
-<p>
-  <strong>Longitude</strong>
-  <span id="organization_lng"><%= @organization.longitude %></span>
-</p>
 
-<%= render 'gmap_show' %>
-
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+<%= link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-default' %>
+<%= link_to 'Back', organizations_path, class: 'btn btn-default' %>

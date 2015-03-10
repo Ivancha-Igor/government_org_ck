@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
 
 <h1>Listing Organizations</h1>
 
@@ -18,21 +20,7 @@
   </thead>
 
   <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td><%= organization.title %></td>
-        <td><%= organization.description %></td>
-        <td><%= organization.address %></td>
-        <td><%= organization.phone %></td>
-        <td><%= organization.email %></td>
-        <td><%=raw tag_links(organization.all_tags) %></td>
-        <td><%= organization.latitude %></td>
-        <td><%= organization.longitude %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render @organizations %>
   </tbody>
 </table>
 
