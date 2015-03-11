@@ -1,7 +1,7 @@
 <% if notice %>
     <p id="notice"><%= notice %></p>
 <% end %>
-
+<h1 class="text-center"><%= @organization.title %></h1>
 <div class="row-fluid">
   <div class="col-sm-5">
     <ul class="list-group">
@@ -44,6 +44,10 @@
         <span id="organization_lng"><%= @organization.longitude %></span>
       </li>
     </ul>
+    <div>
+      <%= link_to 'Редактировать', edit_organization_path(@organization), class: 'btn btn-default' %>
+      <%= link_to 'Назад', organizations_path, class: 'btn btn-default' %>
+    </div>
   </div>
   <div class="col-sm-7">
     <%= render 'gmap_show' %>
@@ -51,5 +55,4 @@
 </div>
 
 
-<%= link_to 'Edit', edit_organization_path(@organization), class: 'btn btn-default' %>
-<%= link_to 'Back', organizations_path, class: 'btn btn-default' %>
+

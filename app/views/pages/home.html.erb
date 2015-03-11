@@ -37,6 +37,12 @@
 <script>
 
     var map;
+    var locations = [
+        ['Title A', 49.441246, 32.063454, 1],
+        ['Title B', 49.440270, 32.063798, 2],
+        ['Title C', 49.441414, 32.067617, 3],
+        ['Title D', 49.442335, 32.064313, 4]
+    ];
 
     function initialize() {
         var mapOptions = {
@@ -47,14 +53,23 @@
         map = new google.maps.Map(document.getElementById('map-canvas'),
                 mapOptions);
 
-        var markersArray = [];
+        var infowindow = new google.maps.InfoWindow;
 
-        <% @organizations.each do |organization| %>
-          var marker = {
-              latlng: <%= [organization.latitude, organization.longitude] %>
-          };
-        markersArray.push(marker);
-        <% end %>
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+            marker = new google.maps.Marker({
+                position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                map: map
+            });
+
+            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                return function () {
+                    infowindow.setContent(locations[i][0]);
+                    infowindow.open(map, marker);
+                }
+            })(marker, i));
+        }
 
     }
 

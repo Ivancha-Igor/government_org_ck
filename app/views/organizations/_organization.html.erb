@@ -1,13 +1,14 @@
-<tr>
-  <td><%= organization.title %></td>
-  <td><%= organization.description %></td>
-  <td><%= organization.address %></td>
-  <td><%= organization.phone %></td>
-  <td><%= organization.email %></td>
-  <td><%=raw tag_links(organization.all_tags) %></td>
-  <td><%= organization.latitude %></td>
-  <td><%= organization.longitude %></td>
-  <td><%= link_to 'Show', organization %></td>
-  <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-  <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
+<div class="panel panel-default">
+  <div class="panel-body">
+      <div class="row-fluid">
+        <div class="col-sm-3"><%= organization.title %></div>
+        <div class="col-sm-3"><%= organization.address %></div>
+        <div class="col-sm-3"><%= organization.phone %></div>
+        <div class="col-sm-3">
+          <%= link_to 'Показать', organization, class: 'btn btn-default' %>
+          <%= link_to 'Edit', edit_organization_path(organization), class: 'btn btn-default' %>
+          <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+        </div>
+      </div>
+  </div>
+</div>
