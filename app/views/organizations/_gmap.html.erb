@@ -1,0 +1,49 @@
+<div id="gmap" class="map"></div>
+
+<script>
+    var cherkassy = new google.maps.LatLng(49.431133, 32.04923);
+    var stadium = new google.maps.LatLng(49.436079, 32.054587);
+    var marker;
+    var map;
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 14,
+            center: cherkassy
+        };
+        var map = new google.maps.Map(document.getElementById('gmap'),mapOptions);
+
+        marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+            position: stadium
+        });
+
+        var defaultImage = new google.maps.MarkerImage(
+                "http://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+                new google.maps.Size(71, 71),
+                new google.maps.Point(0, 0),
+                new google.maps.Point(17, 34),
+                new google.maps.Size(35, 35));
+        marker.setIcon(defaultImage);
+
+        google.maps.event.addListener(marker, 'click', toggleBounce);
+
+        google.maps.event.addListener(marker, 'dragend', function() {
+           document.getElementById('inputLat').value = this.getPosition().lat();
+            document.getElementById('inputLng').value = this.getPosition().lng();
+        });
+
+    }
+
+    function toggleBounce() {
+        if (marker.getAnimation() != null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+    }
+    google.maps.event.addDomListener(window, 'page:load', initialize);
+
+</script>

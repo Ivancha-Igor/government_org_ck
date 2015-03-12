@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218114112) do
+ActiveRecord::Schema.define(version: 20150306091748) do
 
   create_table "organization_tags", force: :cascade do |t|
     t.integer  "organization_id"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150218114112) do
     t.string   "email"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "tags", force: :cascade do |t|

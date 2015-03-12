@@ -1,37 +1,13 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <p id="notice"><%= notice %></p>
+<% end %>
 
-<h1>Listing Organizations</h1>
+<h1 class="text-center">Список организаций</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= render @organizations %>
 
-  <tbody>
-    <% @organizations.each do |organization| %>
-      <tr>
-        <td><%= organization.title %></td>
-        <td><%= organization.description %></td>
-        <td><%= organization.address %></td>
-        <td><%= organization.phone %></td>
-        <td><%= organization.email %></td>
-        <td><%=raw tag_links(organization.all_tags) %></td>
-        <td><%= link_to 'Show', organization %></td>
-        <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
-        <td><%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Organization', new_organization_path %>
+<div class="row-fluid">
+  <div class="col-sm-12">
+    <%= link_to 'Добавить организацию', new_organization_path, class: 'btn btn-default' %>
+  </div>
+</div>

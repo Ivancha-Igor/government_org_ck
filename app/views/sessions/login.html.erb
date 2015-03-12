@@ -1,2 +1,24 @@
-<h1>Sessions#login</h1>
-<p>Find me in app/views/sessions/login.html.erb</p>
+<h1 class="text-center">Для зарегистрированных пользователей</h1>
+
+<%= form_tag('/sessions', method: :post, html: {class: 'form-horizontal', role: 'form'}) do  %>
+      <div class="col-sm-12 form-group">
+        <div class="col-sm-1">
+          <%= label_tag 'Эл.почта', nil, {class: 'control-label', for: 'inputEmail'} %>
+        </div>
+        <div class="col-sm-6">
+          <%= text_field_tag :email, nil, {class: 'col-sm-4 form-control', id: 'inputEmail'} %>
+        </div>
+      </div>
+      <div class="col-sm-12 form-group">
+        <div class="col-sm-1">
+          <%= label_tag 'Пароль',nil, {class: 'control-label', for: 'inputPassword'} %>
+        </div>
+        <div class="col-sm-6">
+          <%= password_field_tag :password, nil, {class: 'col-sm-4 form-control', id: 'inputPassword'} %>
+        </div>
+      </div>
+      <div class=" col-sm-offset-1 col-sm-11 actions">
+        <%= submit_tag 'Вход', class: 'btn btn-default' %>
+      </div>
+
+<% end %>

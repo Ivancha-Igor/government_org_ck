@@ -16,6 +16,9 @@ class Organization < ActiveRecord::Base
   has_many :organization_tags
   has_many :tags, through: :organization_tags
 
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :geocode
+
   def all_tags=(names)
     self.tags = names.split(',').map do |name|
       Tag.where(name: name.strip).first_or_create!
