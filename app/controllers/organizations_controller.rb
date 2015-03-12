@@ -53,6 +53,11 @@ class OrganizationsController < ApplicationController
     end
   end
 
+  def get_organizations
+    @organizations = Organization.all
+    render json: @organizations, only: [:title, :longitude, :latitude]
+  end
+
   private
     def set_organization
       @organization = Organization.find(params[:id])
