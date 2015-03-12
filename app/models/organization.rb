@@ -15,6 +15,13 @@
 class Organization < ActiveRecord::Base
   has_many :organization_tags
   has_many :tags, through: :organization_tags
+  has_many :comments, dependent: :destroy
+
+  validates :title,
+            presence: true,
+            uniqueness: true
+  validates :address,
+            presence: true
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :geocode
