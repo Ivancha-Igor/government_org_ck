@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150306091748) do
+ActiveRecord::Schema.define(version: 20150312092012) do
 
   create_table "organization_tags", force: :cascade do |t|
     t.integer  "organization_id"
@@ -51,5 +51,7 @@ ActiveRecord::Schema.define(version: 20150306091748) do
     t.datetime "updated_at",                      null: false
     t.boolean  "admin",           default: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
