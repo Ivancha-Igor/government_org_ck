@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :organizations
+  resources :organizations do
+    resources :comments
+  end
 
   get 'pages/home'
   root 'pages#home'
