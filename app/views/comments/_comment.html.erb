@@ -1,0 +1,15 @@
+<div class="row-fluid">
+  <div class="col-sm-12">
+    <b>Коммент:</b>
+    <%= comment.body %>
+  </div>
+  <div class="col-sm-12">
+    Создал: <%= comment.user.name %>
+  </div>
+  <div class="col-sm-12">
+    <%= link_to 'Удалить комментарий', [comment.organization, comment],
+                method: :delete,
+                data: { confirm: 'Вы уверены?' },
+                class: 'btn btn-default' %>
+  </div>
+</div>
