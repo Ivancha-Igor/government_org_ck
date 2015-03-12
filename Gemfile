@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 # Add a comment summarizing the current schema
 gem 'annotate'
+gem 'faker'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

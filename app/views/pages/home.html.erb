@@ -35,25 +35,33 @@
 <div class="container">
   <div class="row-fluid">
     <div class="col-lg-12">
+
+
       <section id="map-canvas" class="map"></section>
 
       <script>
 
-          var map;
-
           function initialize() {
+              var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
               var mapOptions = {
-                  zoom: 14,
-                  center: new google.maps.LatLng(49.431133, 32.04923),
-                  mapTypeId: 'roadmap'
-              };
-              map = new google.maps.Map(document.getElementById('map-canvas'),
-                      mapOptions);
+                  zoom: 4,
+                  center: myLatlng
+              }
+              var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+              <% @organizations.each do |o| %>
+              var organizationLatlng = new google.maps.LatLng(<%= o.latitude %>,<%= o.longitude %>);
 
+              var marker = new google.maps.Marker({
+                  position: organizationLatlng,
+                  map: map,
+                  title: '<%= o.title %>'
+              });
+
+              <% end %>
           }
 
-          google.maps.event.addDomListener(window, 'page:load', initialize);
+          google.maps.event.addDomListener(window, 'load', initialize);
 
       </script>
     </div>
