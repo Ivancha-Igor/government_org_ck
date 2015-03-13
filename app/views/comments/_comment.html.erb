@@ -12,7 +12,7 @@
             <%= link_to 'Комментировать комментарий',
                     new_organization_comment_path(@organization.id, :parent_id => comment),
                     class: 'btn btn-default',
-                    id: "add_comment#{comment.id}" %>
+                    id: "add_comment#{comment.id}", remote: true %>
         </span>
       </footer>
     </blockquote>

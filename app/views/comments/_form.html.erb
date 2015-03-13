@@ -3,13 +3,14 @@
     <%= f.hidden_field :parent_id, value: params[:parent_id] %>
     <div class="row-fluid">
       <div class="form-group">
-        <%= f.label 'Текст', for: 'inputText', class: 'col-sm-1 control-label' %>
-        <div class="col-sm-11">
-          <%= f.text_area :body, class: 'form-control', id: 'inputText', placeholder: 'Ваш комментарий' %>
+        <div class="col-sm-12">
+          <div class="col-sm-8">
+            <%= f.text_area :body, class: 'form-control', id: 'inputText', placeholder: 'Ваш комментарий' %>
+          </div>
         </div>
       </div>
       <div class="actions">
-        <div class="col-sm-offset-1 col-sm-11">
+        <div class="col-sm-4">
           <%= f.submit 'Добавить', class: 'btn btn-default' %>
         </div>
       </div>
