@@ -8,7 +8,7 @@
   <%= javascript_include_tag "//maps.googleapis.com/maps/api/js?v=3.exp" %>
   <%= render 'layouts/shim' %>
 </head>
-<body>
+<body onload="initialize()">
 
 <%= render 'layouts/header' %>
 <%= yield %>

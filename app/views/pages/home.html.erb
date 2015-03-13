@@ -35,27 +35,7 @@
 <div class="container">
   <div class="row-fluid">
     <div class="col-lg-12">
-      <section id="map-canvas" class="map"></section>
-
-      <script>
-
-          var map;
-
-          function initialize() {
-              var mapOptions = {
-                  zoom: 14,
-                  center: new google.maps.LatLng(49.431133, 32.04923),
-                  mapTypeId: 'roadmap'
-              };
-              map = new google.maps.Map(document.getElementById('map-canvas'),
-                      mapOptions);
-
-
-          }
-
-          google.maps.event.addDomListener(window, 'page:load', initialize);
-
-      </script>
+      <%= render 'organizations/gmap_home' %>
     </div>
   </div>
 </div>
