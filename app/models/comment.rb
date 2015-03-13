@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :organization
+  has_ancestry
 
   validates_presence_of :body
 

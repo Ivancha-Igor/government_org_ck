@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
 
   def new
     @organization = Organization.find(params[:organization_id])
-    @comment = Comment.new
+    @comment = Comment.new(:parent_id => params[:parent_id], :organization_id => params[:organization_id])
   end
 
   def create
@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     if @comment.save
       respond_to do |format|
-        format.html { redirect_to organization_path(@organization), notice: 'Ваш комментарий успешно сохранен' }
+        format.html { redirect_to organization_path(@organization) }
+        format.js {}
       end
     end
   end
@@ -31,6 +32,6 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:body)
+      params.require(:comment).permit(:body, :parent_id)
     end
 end

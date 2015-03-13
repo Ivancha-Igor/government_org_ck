@@ -1,4 +1,6 @@
 <%= form_for([@organization, @organization.comments.build], html: {class: 'form-horizontal new_comment'}) do |f| %>
+    <%= f.hidden_field :organization_id, value: @organization.id %>
+    <%= f.hidden_field :parent_id, value: params[:parent_id] %>
     <div class="row-fluid">
       <div class="form-group">
         <%= f.label 'Текст', for: 'inputText', class: 'col-sm-1 control-label' %>
