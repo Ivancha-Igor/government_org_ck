@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'sessions/logout'
   post 'sessions' => 'sessions#create'
 
+  get '/get_organizations' => 'organizations#get_organizations'
+
   get 'registration' => 'users#new', as: 'registration'
   post 'users' => 'users#create'
 
