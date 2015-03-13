@@ -50,10 +50,37 @@
               map = new google.maps.Map(document.getElementById('map-canvas'),
                       mapOptions);
 
+              <% @organizations.each do |organization| %>
+                var organizationLatLng = new google.maps.LatLng(<%= organization.latitude %>, <%= organization.longitude %>);
+
+
+              var infowindow = new google.maps.InfoWindow({
+                  content: '<%= organization.title %>'
+              });
+
+                var marker = new google.maps.Marker({
+                   position: organizationLatLng,
+                   map: map,
+                   title: '<%= organization.title %>'
+                });
+
+              var defaultImage = new google.maps.MarkerImage(
+                      "http://maps.gstatic.com/mapfiles/place_api/icons/geocode-71.png",
+                      new google.maps.Size(71, 71),
+                      new google.maps.Point(0, 0),
+                      new google.maps.Point(17, 34),
+                      new google.maps.Size(35, 35));
+              marker.setIcon(defaultImage);
+
+              <% end %>
+
+              google.maps.event.addListener(marker, 'click', function() {
+                  infowindow.open(map, marker);
+              });
 
           }
 
-          google.maps.event.addDomListener(window, 'page:load', initialize);
+          google.maps.event.addDomListener(window, 'load', initialize);
 
       </script>
     </div>
