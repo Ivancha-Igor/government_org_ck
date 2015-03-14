@@ -16,10 +16,8 @@
         <% @organizations.each do |organization| %>
         var organizationLatLng = new google.maps.LatLng(<%= organization.latitude %>, <%= organization.longitude %>);
 
-
-        var infowindow = new google.maps.InfoWindow({
-            content: '<%= organization.title %>'
-        });
+        var infowindow = new google.maps.InfoWindow({content: contentString});
+        var contentString = '<%= organization.title %>';
 
         var marker = new google.maps.Marker({
             position: organizationLatLng,
@@ -35,12 +33,18 @@
                 new google.maps.Size(35, 35));
         marker.setIcon(defaultImage);
 
+        google.maps.event.addListener(marker, 'click', getInfoCallback(map, contentString));
+
         <% end %>
 
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map, marker);
-        });
 
+    }
+    function getInfoCallback(map, content) {
+        var infowindow = new google.maps.InfoWindow({content: content});
+        return function() {
+            infowindow.setContent(content);
+            infowindow.open(map, this);
+        };
     }
 
     google.maps.event.addDomListener(window, 'page:load', initialize);
