@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get 'sessions/logout'
   post 'sessions' => 'sessions#create'
 
+  get '/auth/:provider/callback' => 'sessions#create_session'
+  post '/auth/:provider/callback' => 'sessions#create_session'
+
   get 'registration' => 'users#new', as: 'registration'
   post 'users' => 'users#create'
 
