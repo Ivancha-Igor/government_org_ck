@@ -58,3 +58,5 @@ gem 'annotate'
 gem 'geocoder'
 gem 'ancestry'
 
+gem 'omniauth-twitter'
+
