@@ -17,20 +17,22 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password,
-            length: { minimum: 6 }
+            length: { minimum: 6 },
+            allow_nil: true
   validates :email,
             presence: true,
             format:     { with: VALID_EMAIL_REGEX },
-            uniqueness: { case_sensitive: false }
+            uniqueness: { case_sensitive: false },
+            allow_blank: true
   validates :name,
             presence: true,
             length: { maximum: 50 }
 
   def self.create_with_omniauth(auth)
     create! do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      user.name = auth['info']['name']
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.info.name
     end
   end
 end

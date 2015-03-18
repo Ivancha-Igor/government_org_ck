@@ -18,6 +18,10 @@
         <li><%= link_to 'Организации', organizations_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+          <li>Welcome <%= current_user.name %></li>
+          <li><%= link_to 'Выйти', sessions_logout_path %></li>
+        <% end %>
         <li><%= link_to 'Вход', sessions_login_path %></li>
         <li><%= link_to 'Регистрация', registration_path %></li>
         <li>
