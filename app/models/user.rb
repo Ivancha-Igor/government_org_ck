@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_secure_password
   has_many :comments, dependent: :destroy
 
-  before_save { self.email = email.downcase }
+  after_save { self.email = email.downcase if provider == 'twitter' }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password,
             length: { minimum: 6 }

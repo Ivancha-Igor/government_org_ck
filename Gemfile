@@ -59,6 +59,8 @@ gem 'geocoder'
 gem 'ancestry'
 
 gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
+gem 'omniauth-oauth2'
 
 gem 'figaro'
 
