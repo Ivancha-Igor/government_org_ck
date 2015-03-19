@@ -60,3 +60,5 @@ gem 'ancestry'
 
 gem 'omniauth-twitter'
 
+gem 'figaro'
+
