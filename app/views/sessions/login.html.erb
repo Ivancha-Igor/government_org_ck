@@ -4,7 +4,7 @@
     <div class="row-fluid">
       <div class="col-sm-12 form-group">
         <div class="col-sm-1">
-          <%= label_tag 'Эл.почта', nil, {class: 'control-label', for: 'inputEmail'} %>
+          <%= label_tag 'Email', nil, {class: 'control-label', for: 'inputEmail'} %>
         </div>
         <div class="col-sm-6">
           <%= text_field_tag :email, nil, {class: 'col-sm-4 form-control', id: 'inputEmail'} %>
@@ -28,7 +28,7 @@
   <div class="col-sm-12">
     <p class="lead">Также можно войти через соцсети:</p>
     <div class="col-sm-4">
-      <%= link_to 'Твиттер', '/auth/twitter' %>
+      <%= link_to 'Твиттер', '/auth/twitter', class: 'btn btn-default' %>
     </div>
   </div>
 </div>

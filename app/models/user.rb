@@ -17,8 +17,7 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :password,
-            length: { minimum: 6 },
-            allow_nil: true
+            length: { minimum: 6 }
   validates :email,
             presence: true,
             format:     { with: VALID_EMAIL_REGEX },
@@ -28,11 +27,13 @@ class User < ActiveRecord::Base
             presence: true,
             length: { maximum: 50 }
 
+  require 'securerandom'
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
+      user.password = SecureRandom.urlsafe_base64
     end
   end
 end
