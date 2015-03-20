@@ -64,4 +64,5 @@ gem 'omniauth-oauth2'
 gem 'omniauth-google-oauth2'
 
 gem 'figaro'
+gem 'kaminari'
 

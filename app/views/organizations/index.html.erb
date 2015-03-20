@@ -6,6 +6,8 @@
 
 <%= render @organizations %>
 
+<div class="col-sm-12 center"><%= paginate @organizations %></div>
+
 <div class="row-fluid">
   <div class="col-sm-12">
     <%= link_to 'Добавить организацию', new_organization_path, class: 'btn btn-default' %>

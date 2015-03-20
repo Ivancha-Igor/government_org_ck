@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
     else
       @organizations = Organization.all
     end
+    @organizations = @organizations.page(params[:page]).per(5)
   end
 
   def show
