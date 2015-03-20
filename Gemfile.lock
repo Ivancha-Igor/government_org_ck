@@ -109,6 +109,9 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
+    omniauth-google-oauth2 (0.2.6)
+      omniauth (> 1.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
@@ -214,6 +217,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   jquery-rails
+  omniauth-google-oauth2
   omniauth-oauth2
   omniauth-twitter
   omniauth-vkontakte
