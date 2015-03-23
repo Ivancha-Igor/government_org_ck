@@ -11,8 +11,16 @@
   position: relative;
   #live-search-results{
     position: absolute;
-    div{
-      width: 180px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    h4 {
+      padding-left: 5px;
+      width: 400px;
+      small {
+        &:hover {
+          color: #000066;
+        }
+      }
     }
   }
 }
