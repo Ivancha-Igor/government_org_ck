@@ -65,4 +65,6 @@ gem 'omniauth-google-oauth2'
 
 gem 'figaro'
 gem 'kaminari'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 
