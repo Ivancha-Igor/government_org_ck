@@ -1,40 +1,42 @@
-<h1 class="text-center">Для зарегистрированных пользователей</h1>
+<div class="container">
+  <h1 class="text-center">Для зарегистрированных пользователей</h1>
 
-<%= form_tag('/sessions', method: :post, html: {class: 'form-horizontal', role: 'form'}) do  %>
-    <div class="row-fluid">
-      <div class="col-sm-12 form-group">
-        <div class="col-sm-1">
-          <%= label_tag 'Email', nil, {class: 'control-label', for: 'inputEmail'} %>
+  <%= form_tag('/sessions', method: :post, html: {class: 'form-horizontal', role: 'form'}) do  %>
+      <div class="row-fluid">
+        <div class="col-sm-12 form-group">
+          <div class="col-sm-1">
+            <%= label_tag 'Email', nil, {class: 'control-label', for: 'inputEmail'} %>
+          </div>
+          <div class="col-sm-6">
+            <%= text_field_tag :email, nil, {class: 'col-sm-4 form-control', id: 'inputEmail'} %>
+          </div>
         </div>
-        <div class="col-sm-6">
-          <%= text_field_tag :email, nil, {class: 'col-sm-4 form-control', id: 'inputEmail'} %>
+        <div class="col-sm-12 form-group">
+          <div class="col-sm-1">
+            <%= label_tag 'Пароль',nil, {class: 'control-label', for: 'inputPassword'} %>
+          </div>
+          <div class="col-sm-6">
+            <%= password_field_tag :password, nil, {class: 'col-sm-4 form-control', id: 'inputPassword'} %>
+          </div>
+        </div>
+        <div class="form-group col-sm-offset-1 col-sm-11">
+          <%= submit_tag 'Вход', class: 'btn btn-default' %>
         </div>
       </div>
-      <div class="col-sm-12 form-group">
-        <div class="col-sm-1">
-          <%= label_tag 'Пароль',nil, {class: 'control-label', for: 'inputPassword'} %>
-        </div>
-        <div class="col-sm-6">
-          <%= password_field_tag :password, nil, {class: 'col-sm-4 form-control', id: 'inputPassword'} %>
-        </div>
-      </div>
-      <div class=" col-sm-offset-1 col-sm-11 actions">
-        <%= submit_tag 'Вход', class: 'btn btn-default' %>
-      </div>
-    </div>
-<% end %>
+  <% end %>
 
-<div class="row-fluid">
-  <div class="col-sm-12">
-    <p class="lead">Также можно войти через соцсети:</p>
-    <div class="col-sm-4">
-      <%= link_to 'Твиттер', '/auth/twitter', class: 'btn btn-default' %>
-    </div>
-    <div class="col-sm-4">
-      <%= link_to 'ВКонтакте', '/auth/vkontakte', class: 'btn btn-default' %>
-    </div>
-    <div class="col-sm-4">
-      <%= link_to 'Гугл+', '/auth/google_oauth2', class: 'btn btn-default' %>
+  <div class="row-fluid">
+    <div class="col-sm-12">
+      <p class="lead text-center">Также можно войти через соцсети:</p>
+      <div class="col-sm-4">
+        <%= link_to 'Твиттер', '/auth/twitter', class: 'btn btn-default' %>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to 'ВКонтакте', '/auth/vkontakte', class: 'btn btn-default' %>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to 'Гугл+', '/auth/google_oauth2', class: 'btn btn-default' %>
+      </div>
     </div>
   </div>
 </div>
