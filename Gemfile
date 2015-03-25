@@ -67,4 +67,5 @@ gem 'figaro'
 gem 'kaminari'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
+gem 'rails-i18n', '~> 4.0.0'
 
