@@ -6,8 +6,8 @@
         <div class="col-sm-3"><%= organization.phone %></div>
         <div class="col-sm-3">
           <%= link_to 'Показать', organization, class: 'btn btn-default' %>
-          <%= link_to 'Edit', edit_organization_path(organization), class: 'btn btn-default' %>
-          <%= link_to 'Destroy', organization, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+          <%= link_to 'Редактировать', edit_organization_path(organization), class: 'btn btn-default' %>
+          <%= link_to 'Удалить', organization, method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-default' %>
         </div>
       </div>
   </div>
