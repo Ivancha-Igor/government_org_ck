@@ -38,9 +38,11 @@
     var map;
     function initialize() {
         var mapOptions = {
-            zoom: 15,
-            center: new google.maps.LatLng(49.431133, 32.04923),
-            mapTypeId: 'roadmap'
+            zoom: 14,
+            center: new google.maps.LatLng(49.443772, 32.065901),
+            mapTypeId: 'roadmap',
+            scrollwheel: false,
+            disableDoubleClickZoom: true
         };
         map = new google.maps.Map(document.getElementById('map-canvas'),
                 mapOptions);
