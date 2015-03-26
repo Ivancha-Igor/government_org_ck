@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="text-center">Для зарегистрированных пользователей</h1>
+  <h1 class="text-center"><%= t('sessions.title') %></h1>
 
   <%= form_tag('/sessions', method: :post, html: {class: 'form-horizontal', role: 'form'}) do  %>
       <div class="row-fluid">
@@ -20,14 +20,14 @@
           </div>
         </div>
         <div class="form-group col-sm-offset-1 col-sm-11">
-          <%= submit_tag 'Вход', class: 'btn btn-default' %>
+          <%= submit_tag t('sessions.submit'), class: 'btn btn-default' %>
         </div>
       </div>
   <% end %>
 
   <div class="row-fluid">
     <div class="col-sm-12">
-      <p class="lead text-center">Также можно войти через соцсети:</p>
+      <p class="lead text-center"><%= t('sessions.body') %></p>
       <div class="col-sm-4">
         <%= link_to '/auth/twitter', class: 'btn btn-block btn-lg btn-social btn-twitter social' do %>
             <i class="fa fa-twitter"></i> Twitter
