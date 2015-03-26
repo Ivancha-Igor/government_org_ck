@@ -25,7 +25,7 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
-        format.html { redirect_to @organization, notice: 'Вы добавили информацию об организации' }
+        format.html { redirect_to @organization, notice: t('messages.add_org') }
         format.json { render :show, status: :created, location: @organization }
       else
         format.html { render :new }
@@ -37,7 +37,7 @@ class OrganizationsController < ApplicationController
   def update
     respond_to do |format|
       if @organization.update(organization_params)
-        format.html { redirect_to @organization, notice: 'Информация об организации была обновлена' }
+        format.html { redirect_to @organization, notice: t('messages.edit_org') }
         format.json { render :show, status: :ok, location: @organization }
       else
         format.html { render :edit }
@@ -49,7 +49,7 @@ class OrganizationsController < ApplicationController
   def destroy
     @organization.destroy
     respond_to do |format|
-      format.html { redirect_to organizations_url, notice: 'Информация об организации была удалена' }
+      format.html { redirect_to organizations_url, notice: t('messages.delete_org') }
       format.json { head :no_content }
     end
   end

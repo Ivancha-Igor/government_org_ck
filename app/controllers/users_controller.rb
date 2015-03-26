@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      redirect_to :back, notice: 'Нужно заполнить Email и Пароль, не менее 6 символов'
+      redirect_to :back, notice: t('messages.user_back')
     end
   end
 
