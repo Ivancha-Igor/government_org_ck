@@ -18,9 +18,14 @@
         <li><%= link_to 'Организации', organizations_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Вход', sessions_login_path %></li>
-        <li><%= link_to 'Регистрация', registration_path %></li>
-        <li>
+        <% if current_user %>
+          <li class="current">Добро пожаловать, <%= current_user.name %></li>
+          <li><%= link_to 'Выйти', sessions_logout_path %></li>
+        <% else %>
+          <li><%= link_to 'Вход', sessions_login_path %></li>
+          <li><%= link_to 'Регистрация', registration_path %></li>
+        <% end %>
+      </ul>
           <%= form_tag search_path, method: 'get', class: 'navbar-form navbar-right', id: 'live-search-form', autocomlete: 'off' do %>
             <%= text_field_tag :search, params[:search], autocomlete: 'off', autofocus: true, placeholder: 'Search', class: 'form-control', id: 'search' %>
             <%= submit_tag 'Search', name: nil, class: 'btn btn-default', id: 'submit-search-query' %>
@@ -28,8 +33,6 @@
               <%= render 'layouts/live_search_results' %>
             </div>
           <% end %>
-        </li>
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </header>

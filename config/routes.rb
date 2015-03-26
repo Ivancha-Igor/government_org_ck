@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :organizations
+  resources :organizations do
+    resources :comments
+  end
 
   get 'pages/home'
   root 'pages#home'
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
   get 'sessions/login'
   get 'sessions/logout'
   post 'sessions' => 'sessions#create'
+
+  get '/auth/:provider/callback' => 'sessions#create_session'
+  post '/auth/:provider/callback' => 'sessions#create_session'
 
   get 'registration' => 'users#new', as: 'registration'
   post 'users' => 'users#create'

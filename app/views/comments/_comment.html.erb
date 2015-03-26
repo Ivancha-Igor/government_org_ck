@@ -1,0 +1,20 @@
+<div class="row-fluid">
+  <div class="col-sm-12" id="comments">
+    <blockquote>
+      <p><%= comment.body %></p>
+      <footer>Комментарий создан: <%= comment.created_at.strftime('%d/%m/%Y') %>
+        <span><%= link_to 'Удалить комментарий', [comment.organization, comment],
+                          method: :delete,
+                          data: { confirm: 'Вы уверены?' },
+                          class: 'btn btn-default' %>
+        </span>
+        <span class="reply">
+            <%= link_to 'Комментировать комментарий',
+                    new_organization_comment_path(@organization.id, :parent_id => comment),
+                    class: 'btn btn-default',
+                    id: "add_comment#{comment.id}", remote: true %>
+        </span>
+      </footer>
+    </blockquote>
+  </div>
+</div>

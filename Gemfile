@@ -56,4 +56,15 @@ end
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'annotate'
 gem 'geocoder'
+gem 'ancestry'
+
+gem 'omniauth-twitter'
+gem 'omniauth-vkontakte'
+gem 'omniauth-oauth2'
+gem 'omniauth-google-oauth2'
+
+gem 'figaro'
+gem 'kaminari'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 

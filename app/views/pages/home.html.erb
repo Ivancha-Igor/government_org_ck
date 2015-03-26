@@ -1,7 +1,7 @@
 <!-- Intro -->
 <section id="intro" class="intro">
   <div class="container text-vertical-center">
-    <div class="row">
+    <div class="row-fluid">
       <div class="col-lg-12">
         <h1>Государственные организации г.Черкассы</h1>
         <h3>Добро пожаловать на сайт, на котором Вы найдете максимум информации о гос.учреждениях города Черкассы!</h3>
@@ -15,7 +15,7 @@
 <!-- About -->
 <section id="about" class="about">
   <div class="container">
-    <div class="row">
+    <div class="row-fluid">
       <div class="col-lg-12 text-center">
         <h2>Немного о проекте!</h2>
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet
@@ -32,34 +32,10 @@
 </section>
 
 <!-- Map -->
-<section id="map-canvas" class="map"></section>
-
-<script>
-    var map;
-    function initialize() {
-        var mapOptions = {
-            zoom: 14,
-            center: new google.maps.LatLng(49.443772, 32.065901),
-            mapTypeId: 'roadmap',
-            scrollwheel: false,
-            disableDoubleClickZoom: true
-        };
-        map = new google.maps.Map(document.getElementById('map-canvas'),
-                mapOptions);
-
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(49.443772, 32.065901),
-            map: map,
-            title: 'Главное управления Миндоходов Черкасской области'
-        });
-        var infowindow = new google.maps.InfoWindow({
-            content: 'Главное управления Миндоходов Черкасской области'
-        });
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(marker.get('map'), marker);
-        });
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
+<div class="container">
+  <div class="row-fluid">
+    <div class="col-lg-12">
+      <%= render 'organizations/gmap_home' %>
+    </div>
+  </div>
+</div>

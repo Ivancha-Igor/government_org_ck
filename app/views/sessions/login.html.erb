@@ -1,2 +1,48 @@
-<h1>Sessions#login</h1>
-<p>Find me in app/views/sessions/login.html.erb</p>
+<div class="container">
+  <h1 class="text-center">Для зарегистрированных пользователей</h1>
+
+  <%= form_tag('/sessions', method: :post, html: {class: 'form-horizontal', role: 'form'}) do  %>
+      <div class="row-fluid">
+        <div class="col-sm-12 form-group">
+          <div class="col-sm-1">
+            <%= label_tag 'Email', nil, {class: 'control-label', for: 'inputEmail'} %>
+          </div>
+          <div class="col-sm-6">
+            <%= text_field_tag :email, nil, {class: 'col-sm-4 form-control', id: 'inputEmail', placeholder: 'Email'} %>
+          </div>
+        </div>
+        <div class="col-sm-12 form-group">
+          <div class="col-sm-1">
+            <%= label_tag 'Пароль',nil, {class: 'control-label', for: 'inputPassword'} %>
+          </div>
+          <div class="col-sm-6">
+            <%= password_field_tag :password, nil, {class: 'col-sm-4 form-control', id: 'inputPassword', placeholder: 'Пароль'} %>
+          </div>
+        </div>
+        <div class="form-group col-sm-offset-1 col-sm-11">
+          <%= submit_tag 'Вход', class: 'btn btn-default' %>
+        </div>
+      </div>
+  <% end %>
+
+  <div class="row-fluid">
+    <div class="col-sm-12">
+      <p class="lead text-center">Также можно войти через соцсети:</p>
+      <div class="col-sm-4">
+        <%= link_to '/auth/twitter', class: 'btn btn-block btn-lg btn-social btn-twitter social' do %>
+            <i class="fa fa-twitter"></i> Твиттер
+        <% end %>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to '/auth/vkontakte', class: 'btn btn-block btn-lg btn-social btn-vk social' do %>
+            <i class="fa fa-vk"></i> ВКонтакте
+        <% end %>
+      </div>
+      <div class="col-sm-4">
+        <%= link_to '/auth/google_oauth2', class: 'btn btn-block btn-lg btn-social btn-google-plus social' do %>
+            <i class="fa fa-google-plus"></i> Гугл+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

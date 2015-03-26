@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
     else
       @organizations = Organization.all
     end
+    @organizations = @organizations.page(params[:page]).per(5)
   end
 
   def show
@@ -59,6 +60,6 @@ class OrganizationsController < ApplicationController
     end
 
     def organization_params
-      params.require(:organization).permit(:title, :description, :address, :phone, :email, :all_tags)
+      params.require(:organization).permit(:title, :description, :address, :phone, :email, :all_tags, :latitude, :longitude)
     end
 end

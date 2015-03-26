@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150218114112) do
+ActiveRecord::Schema.define(version: 20150318141210) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "ancestry"
+  end
+
+  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry"
+  add_index "comments", ["organization_id"], name: "index_comments_on_organization_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "organization_tags", force: :cascade do |t|
     t.integer  "organization_id"
@@ -31,6 +44,8 @@ ActiveRecord::Schema.define(version: 20150218114112) do
     t.string   "email"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -48,6 +63,10 @@ ActiveRecord::Schema.define(version: 20150218114112) do
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "admin",           default: false
+    t.string   "provider"
+    t.string   "uid"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
