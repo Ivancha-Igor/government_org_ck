@@ -1,6 +1,7 @@
 uk:
   buttons:
     submit: "Додати"
+    back: "Назад"
     show: "Показати"
     edit: "Редагувати"
     delete: "Видалити"

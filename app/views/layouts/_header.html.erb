@@ -16,6 +16,12 @@
       <ul class="nav navbar-nav">
         <li><%= link_to t('menu.home'), pages_home_path %></li>
         <li><%= link_to t('menu.org'), organizations_path %></li>
+        <li>
+          <%= link_to_unless I18n.locale == :ru, t('menu.languages.ru'), locale: :ru %>
+        </li>
+        <li>
+          <%= link_to_unless I18n.locale == :uk, t('menu.languages.uk'), locale: :uk %>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
