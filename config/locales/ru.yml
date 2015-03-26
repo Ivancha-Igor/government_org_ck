@@ -9,7 +9,8 @@ ru:
     created: "Комментарий создан"
     delete: "Удалить комментарий"
     reply: "Комментировать комментарий"
-    you_comment: "Ваш комментарий"
+    your_comment: "Ваш комментарий"
+    title: "Комментарии"
   menu:
     home: "Главная"
     org: "Организации"
@@ -18,6 +19,10 @@ ru:
     login: "Вход"
     registr: "Регистрация"
     search: "Поиск"
+    languages:
+      lang: "Язык"
+      ru: "Русский"
+      uk: "Украинский"
   organizations:
     title: "Название"
     place_title: "Название организации"
@@ -26,18 +31,20 @@ ru:
     phone: "Телефон"
     tags: "Все теги"
     place_tags: "Теги через запятую"
+    lat: "Широта"
     lng: "Долгота"
-    page_title: "Список организаций"
+    index_title: "Список организаций"
     submit: "Добавить организацию"
-    new: "Новая организация"
+    new_title: "Новая организация"
+    edit_title: "Редактировать"
   pages:
     intro_title: "Государственные организации г.Черкассы"
-    intro_body: "Добро пожаловать на сайт, на котором Вы найдете максимум информации о гос.учреждениях города Черкассы"
-    about_title: "Немного о проекте"
+    intro_body: "Добро пожаловать на сайт, на котором Вы найдете максимум информации о гос.учреждениях города Черкассы!"
+    about_title: "Немного о проекте!"
   sessions:
     title: "Для зарегистрированных пользователей"
     submit: "Вход"
-    body: "Также можно войти через соцсети"
+    body: "Также можно войти через соцсети:"
   users:
     login: "Логин"
     submit: "Зарегистрироваться"
@@ -46,3 +53,21 @@ ru:
     edit_org: "Информация об организации была обновлена"
     delete_org: "Информация об организации была удалена"
     user_back: "Нужно заполнить Email и Пароль, не менее 6 символов"
+    confirm: "Вы уверены?"
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: "Последняя &raquo;"
+      next: "Следующая &rsaquo;"
+      previous: "&lsaquo; Предыдущая"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      more_pages:
+        display_entries: "Показана %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> из <b>%{total}</b>"
+      one_page:
+        display_entries:
+          few: "Показаны <b>%{count}</b> %{entry_name}"
+          many: "Показаны <b>%{count}</b> %{entry_name}"
+          one: "Показано <b>%{count}</b> %{entry_name}"
+          other: Показаны <b>все %{count}</b> %{entry_name}"
