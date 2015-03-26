@@ -2,14 +2,14 @@
   <div class="col-sm-12" id="comments">
     <blockquote>
       <p><%= comment.body %></p>
-      <footer>Комментарий создан: <%= comment.created_at.strftime('%d/%m/%Y') %>
-        <span><%= link_to 'Удалить комментарий', [comment.organization, comment],
+      <footer>t('comments.created'): <%= comment.created_at.strftime('%d/%m/%Y') %>
+        <span><%= link_to t('comments.delete'), [comment.organization, comment],
                           method: :delete,
-                          data: { confirm: 'Вы уверены?' },
+                          data: { confirm: t('messages.confirm') },
                           class: 'btn btn-default' %>
         </span>
         <span class="reply">
-            <%= link_to 'Комментировать комментарий',
+            <%= link_to t('comments.reply'),
                     new_organization_comment_path(@organization.id, :parent_id => comment),
                     class: 'btn btn-default',
                     id: "add_comment#{comment.id}", remote: true %>
