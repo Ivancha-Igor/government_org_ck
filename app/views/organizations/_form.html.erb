@@ -14,27 +14,27 @@
   <div class="row-fluid">
     <div class="col-sm-5">
       <div class="form-group">
-        <%= f.label 'Название', for: 'inputTitle', class: 'col-sm-2 control-label' %>
+        <%= f.label t('organizations.title'), for: 'inputTitle', class: 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_field :title, class: 'form-control', id: 'inputTitle', placeholder: 'Название организации' %>
+          <%= f.text_field :title, class: 'form-control', id: 'inputTitle', placeholder: t('organizations.place_title') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Описание', for: 'inputDescription', class: 'col-sm-2 control-label' %>
+        <%= f.label t('organizations.description'), for: 'inputDescription', class: 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_area :description, class: 'form-control', id: 'inputDescription', placeholder: 'Описание' %>
+          <%= f.text_area :description, class: 'form-control', id: 'inputDescription', placeholder: t('organizations.description') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Адрес', for: 'inputAddress', class: 'col-sm-2 control-label' %>
+        <%= f.label t('organizations.address'), for: 'inputAddress', class: 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_field :address, class: 'form-control', id: 'inputAddress', placeholder: 'Адрес' %>
+          <%= f.text_field :address, class: 'form-control', id: 'inputAddress', placeholder: t('organizations.address') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Телефон', for: 'inputPhone', class: 'col-sm-2 control-label' %>
+        <%= f.label t('organizations.phone'), for: 'inputPhone', class: 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_field :phone, class: 'form-control', id: 'inputPhone', placeholder: 'Телефон' %>
+          <%= f.text_field :phone, class: 'form-control', id: 'inputPhone', placeholder: t('organizations.phone') %>
         </div>
       </div>
       <div class="form-group">
@@ -44,27 +44,27 @@
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Все теги', for: 'inputAllTags', class: 'col-sm-2 control-label' %>
+        <%= f.label t('organizations.tags'), for: 'inputAllTags', class: 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_field :all_tags, class: 'form-control', id: 'inputAllTags', placeholder: 'Теги через запятую' %>
+          <%= f.text_field :all_tags, class: 'form-control', id: 'inputAllTags', placeholder: t('organizations.place_tags') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Широта', for: 'inputLat', class: 'col-sm-2 control-label' %>
+        <%= f.label t('organizations.lat'), for: 'inputLat', class: 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_field :latitude, class: 'form-control', id: 'inputLat', placeholder: 'Широта' %>
+          <%= f.text_field :latitude, class: 'form-control', id: 'inputLat', placeholder: t('organizations.lat') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Долгота', for: 'inputLng', class: 'col-sm-2 control-label' %>
+        <%= f.label t('organizations.lng'), for: 'inputLng', class: 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%= f.text_field :longitude, class: 'form-control', id: 'inputLng', placeholder: 'Долгота' %>
+          <%= f.text_field :longitude, class: 'form-control', id: 'inputLng', placeholder: t('organizations.lng') %>
         </div>
       </div>
       <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
-          <%= f.submit 'Добавить', class: 'btn btn-default' %>
-          <%= link_to 'Назад', organizations_path, class: 'btn btn-default'  %>
+          <%= f.submit t('buttons.submit'), class: 'btn btn-default' %>
+          <%= link_to t('buttons.back'), organizations_path, class: 'btn btn-default'  %>
         </div>
       </div>
     </div>

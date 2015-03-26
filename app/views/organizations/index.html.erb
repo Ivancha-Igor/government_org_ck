@@ -2,7 +2,7 @@
     <p id="notice"><%= notice %></p>
 <% end %>
 
-<h1 class="text-center">Список организаций</h1>
+<h1 class="text-center"><%= t('organizations.index_title') %></h1>
 
 <%= render @organizations %>
 
@@ -10,6 +10,6 @@
 
 <div class="row-fluid">
   <div class="col-sm-12">
-    <%= link_to 'Добавить организацию', new_organization_path, class: 'btn btn-default' %>
+    <%= link_to t('organizations.submit'), new_organization_path, class: 'btn btn-default' %>
   </div>
 </div>
