@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20150327092009) do
     t.datetime "updated_at",  null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "all_tags"
   end
 
   create_table "tags", force: :cascade do |t|
