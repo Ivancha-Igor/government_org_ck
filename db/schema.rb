@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150318141210) do
+ActiveRecord::Schema.define(version: 20150327092009) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 20150318141210) do
 
   add_index "organization_tags", ["organization_id"], name: "index_organization_tags_on_organization_id"
   add_index "organization_tags", ["tag_id"], name: "index_organization_tags_on_tag_id"
+
+  create_table "organization_translations", force: :cascade do |t|
+    t.integer  "organization_id", null: false
+    t.string   "locale",          null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "title"
+    t.text     "description"
+    t.string   "address"
+  end
+
+  add_index "organization_translations", ["locale"], name: "index_organization_translations_on_locale"
+  add_index "organization_translations", ["organization_id"], name: "index_organization_translations_on_organization_id"
 
   create_table "organizations", force: :cascade do |t|
     t.string   "title"
