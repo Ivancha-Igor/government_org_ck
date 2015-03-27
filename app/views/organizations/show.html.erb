@@ -6,22 +6,22 @@
   <div class="col-sm-5">
     <ul class="list-group">
       <li class="list-group-item">
-        <b>Название:</b>
+        <b><%= t('organizations.title') %>:</b>
         <%= @organization.title %>
       </li>
 
       <li class="list-group-item">
-        <b>Описание:</b>
+        <b><%= t('organizations.description') %>:</b>
         <%= @organization.description %>
       </li>
 
       <li class="list-group-item">
-        <b>Адрес:</b>
+        <b><%= t('organizations.address') %>:</b>
         <%= @organization.address %>
       </li>
 
       <li class="list-group-item">
-        <b>Телефон:</b>
+        <b><%= t('organizations.phone') %>:</b>
         <%= @organization.phone %>
       </li>
 
@@ -31,16 +31,16 @@
       </li>
 
       <li class="list-group-item">
-        <b>Все теги:</b>
+        <b><%= t('organizations.tags') %>:</b>
         <%= @organization.all_tags %>
       </li>
       <li class="list-group-item">
-        <b>Широта:</b>
+        <b><%= t('organizations.lat') %>:</b>
         <span id="organization_lat"><%= @organization.latitude %></span>
       </li>
 
       <li class="list-group-item">
-        <b>Долгота:</b>
+        <b><%= t('organizations.lng') %>:</b>
         <span id="organization_lng"><%= @organization.longitude %></span>
       </li>
     </ul>
