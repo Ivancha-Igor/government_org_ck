@@ -1,25 +1,30 @@
 Rails.application.routes.draw do
 
-  resources :organizations do
-    resources :comments
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    resources :organizations do
+      resources :comments
+    end
+
+    get 'pages/home'
+    root 'pages#home'
+
+    get 'sessions/login'
+    get 'sessions/logout'
+    post 'sessions' => 'sessions#create'
+
+    get '/auth/:provider/callback' => 'sessions#create_session'
+    post '/auth/:provider/callback' => 'sessions#create_session'
+
+    get 'registration' => 'users#new', as: 'registration'
+    post 'users' => 'users#create'
+
+    get 'tags/:tag', to: 'organizations#index', as: 'tag'
+
+    get 'search' => 'pages#search', as: 'search'
   end
 
-  get 'pages/home'
-  root 'pages#home'
-
-  get 'sessions/login'
-  get 'sessions/logout'
-  post 'sessions' => 'sessions#create'
-
-  get '/auth/:provider/callback' => 'sessions#create_session'
-  post '/auth/:provider/callback' => 'sessions#create_session'
-
-  get 'registration' => 'users#new', as: 'registration'
-  post 'users' => 'users#create'
-
-  get 'tags/:tag', to: 'organizations#index', as: 'tag'
-
-  get 'search' => 'pages#search', as: 'search'
+  get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '', to: redirect("/#{I18n.default_locale}")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -6,47 +6,47 @@
   <div class="col-sm-5">
     <ul class="list-group">
       <li class="list-group-item">
-        <b>Название:</b>
+        <b><%= t('organizations.title') %>:</b>
         <%= @organization.title %>
       </li>
 
       <li class="list-group-item">
-        <b>Описание:</b>
+        <b><%= t('organizations.description') %>:</b>
         <%= @organization.description %>
       </li>
 
       <li class="list-group-item">
-        <b>Адрес:</b>
+        <b><%= t('organizations.address') %>:</b>
         <%= @organization.address %>
       </li>
 
       <li class="list-group-item">
-        <b>Телефон:</b>
+        <b><%= t('organizations.phone') %>:</b>
         <%= @organization.phone %>
       </li>
 
       <li class="list-group-item">
-        <b>Имейл:</b>
+        <b>Email:</b>
         <%= @organization.email %>
       </li>
 
       <li class="list-group-item">
-        <b>Все теги:</b>
+        <b><%= t('organizations.tags') %>:</b>
         <%= @organization.all_tags %>
       </li>
       <li class="list-group-item">
-        <b>Широта:</b>
+        <b><%= t('organizations.lat') %>:</b>
         <span id="organization_lat"><%= @organization.latitude %></span>
       </li>
 
       <li class="list-group-item">
-        <b>Долгота:</b>
+        <b><%= t('organizations.lng') %>:</b>
         <span id="organization_lng"><%= @organization.longitude %></span>
       </li>
     </ul>
     <div>
-      <%= link_to 'Редактировать', edit_organization_path(@organization), class: 'btn btn-default' %>
-      <%= link_to 'Назад', organizations_path, class: 'btn btn-default' %>
+      <%= link_to t('buttons.edit'), edit_organization_path(@organization), class: 'btn btn-default' %>
+      <%= link_to t('buttons.back'), organizations_path, class: 'btn btn-default' %>
     </div>
   </div>
   <div class="col-sm-7">
@@ -55,9 +55,8 @@
 </div>
 <div class="row-fluid">
   <div class="col-sm-12">
-    <h2 class="text-center">
-      Комментарии
-    </h2>
+    <h2 class="text-center"><%= t('comments.title') %></h2>
+    <p><%= t('comments.intro') %></p>
   </div>
   <div class="row-fluid">
     <div class="col-sm-12">
