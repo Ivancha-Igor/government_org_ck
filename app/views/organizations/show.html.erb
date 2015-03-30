@@ -45,7 +45,9 @@
       </li>
     </ul>
     <div>
-      <%= link_to t('buttons.edit'), edit_organization_path(@organization), class: 'btn btn-default' %>
+      <% if current_user && current_user.admin? %>
+          <%= link_to t('buttons.edit'), edit_organization_path(@organization), class: 'btn btn-default' %>
+      <% end %>
       <%= link_to t('buttons.back'), organizations_path, class: 'btn btn-default' %>
     </div>
   </div>

@@ -10,6 +10,8 @@
 
 <div class="row-fluid">
   <div class="col-sm-12">
-    <%= link_to t('organizations.submit'), new_organization_path, class: 'btn btn-default' %>
+    <% if current_user && current_user.admin? %>
+        <%= link_to t('organizations.submit'), new_organization_path, class: 'btn btn-default' %>
+    <% end %>
   </div>
 </div>
