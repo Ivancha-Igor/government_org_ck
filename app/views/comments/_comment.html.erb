@@ -5,17 +5,18 @@
         <blockquote>
           <p><%= comment.body %></p>
           <footer><%= t('comments.created') %>: <%= comment.created_at.strftime('%d/%m/%Y') %>
+            <%= comment.user.id if current_user && current_user.admin? %>
             <% if current_user || current_user && current_user.admin? %>
               <span><%= link_to t('comments.delete'), [comment.organization, comment],
                                 method: :delete,
                                 data: { confirm: t('messages.confirm') },
-                                class: 'btn btn-default' %>
+                                class: 'btn btn-danger' %>
               </span>
             <% end %>
             <span class="reply">
                 <%= link_to t('comments.reply'),
                         new_organization_comment_path(@organization.id, :parent_id => comment),
-                        class: 'btn btn-default',
+                        class: 'btn btn-info',
                         id: "add_comment#{comment.id}", remote: true %>
             </span>
           </footer>

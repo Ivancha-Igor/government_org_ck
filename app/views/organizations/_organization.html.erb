@@ -6,10 +6,10 @@
         <div class="col-sm-2"><%= organization.phone %></div>
         <div class="col-sm-4">
           <div class="col-sm-12">
-            <%= link_to t('buttons.show'), organization, class: 'btn btn-default' %>
+            <%= link_to t('buttons.show'), organization, class: 'btn btn-primary' %>
             <% if current_user && current_user.admin? %>
-                <%= link_to t('buttons.edit'), edit_organization_path(organization), class: 'btn btn-default' %>
-                <%= link_to t('buttons.delete'), organization, method: :delete, data: { confirm: t('messages.confirm') }, class: 'btn btn-default' %>
+                <%= link_to t('buttons.edit'), edit_organization_path(organization), class: 'btn btn-warning' %>
+                <%= link_to t('buttons.delete'), organization, method: :delete, data: { confirm: t('messages.confirm') }, class: 'btn btn-danger' %>
             <% end %>
             <% unless organization.comments.empty? %>
               <%= link_to '#', class: 'btn btn-success disabled' do %>
