@@ -5,7 +5,7 @@ Rails.application.routes.draw do
       resources :comments
     end
 
-    get 'pages/home'
+    get 'pages/home', as: 'home'
     root 'pages#home'
 
     get 'sessions/login'
