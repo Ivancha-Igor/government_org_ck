@@ -13,7 +13,13 @@
         </div>
     <% end %>
     <% if notice %>
-        <p id="notice" class="text-right"><%= notice %></p>
+        <div class="col-sm-offset-6 col-sm-6">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <p id="notice" class="panel-title"><%= notice %></p>
+            </div>
+          </div>
+        </div>
     <% end %>
 
   <div class="form-group">
