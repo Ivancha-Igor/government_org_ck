@@ -5,12 +5,12 @@
         <blockquote>
           <p><%= comment.body %></p>
           <footer><%= t('comments.created') %>: <%= comment.created_at.strftime('%d/%m/%Y') %>
-            <% if  current_user %>
+            <% if current_user || current_user && current_user.admin? %>
               <span><%= link_to t('comments.delete'), [comment.organization, comment],
                                 method: :delete,
                                 data: { confirm: t('messages.confirm') },
                                 class: 'btn btn-default' %>
-            </span>
+              </span>
             <% end %>
             <span class="reply">
                 <%= link_to t('comments.reply'),

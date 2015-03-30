@@ -26,6 +26,8 @@ class CommentsController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     if @comment.user == current_user
       @comment.delete
+    elsif current_user && current_user.admin?
+      @comment.delete
     end
     redirect_to @organization
   end
