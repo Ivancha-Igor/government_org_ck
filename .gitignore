@@ -28,4 +28,4 @@ pickle-email-*.html
 bower.json
 
 # Ignore application configuration
-/config/application.yml
+#/config/application.yml
