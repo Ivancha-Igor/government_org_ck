@@ -1,6 +1,15 @@
 @import "bootstrap";
 
-
+@font-face {
+  font-family: 'Riesling';
+  src:url('riesling.eot');
+  src:url('riesling.eot?#iefix') format('embedded-opentype'),
+  url('riesling.svg#icomoon') format('svg'),
+  url('riesling.woff') format('woff'),
+  url('riesling.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 .text-vertical-center {
   display: table-cell;
   text-align: center;
@@ -27,4 +36,7 @@
 .current {
   padding-top: 16px;
   color: #ffffff;
+}
+.branding {
+  font-family: Riesling;
 }
