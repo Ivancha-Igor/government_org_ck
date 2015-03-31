@@ -48,10 +48,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       :port => '587',
       :address => 'smtp.mandrillapp.com',
-      #:user_name => ENV['MANDRILL_USERNAME'],
-      #:password => ENV['MANDRILL_APIKEY'],
-      :user_name => 'sky7hunder@gmail.com',
-      :password => 'Rta3yS9D1HLqpLpb2WRcCg',
+      :user_name => ENV['MANDRILL_USERNAME'],
+      :password => ENV['MANDRILL_APIKEY'],
       :authentication => :plain
   }
   ActionMailer::Base.delivery_method = :smtp
