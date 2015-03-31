@@ -9,6 +9,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      if Rails.env.production?
+        #UserMailer.delay.welcome_email(@user)
+      else
+        UserMailer.welcome_email(@user).deliver_now
+      end
       redirect_to root_path
     else
       redirect_to :back, notice: t('messages.user_back')
