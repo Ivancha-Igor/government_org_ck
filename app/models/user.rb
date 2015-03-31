@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
-     # user.email = auth.info.email.downcase if ['twitter', 'google_oauth2'].include?auth.provider
+      user.email = auth.info.email.downcase
       user.password = SecureRandom.urlsafe_base64
     end
   end
