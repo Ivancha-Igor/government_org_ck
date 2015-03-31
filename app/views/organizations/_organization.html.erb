@@ -10,11 +10,20 @@
             <% if current_user && current_user.admin? %>
                 <%= link_to t('buttons.edit'), edit_organization_path(organization), class: 'btn btn-warning' %>
                 <%= link_to t('buttons.delete'), organization, method: :delete, data: { confirm: t('messages.confirm') }, class: 'btn btn-danger' %>
-            <% end %>
-            <% unless organization.comments.empty? %>
-              <%= link_to '#', class: 'btn btn-success disabled' do %>
-                <%= organization.comments.count %>
-              <% end %>
+
+                <% unless organization.comments.empty? %>
+                  <%= link_to '#', class: 'btn btn-success disabled' do %>
+                    <%= organization.comments.count %>
+                  <% end %>
+                <% end %>
+            <% else %>
+                <% unless organization.comments.empty? %>
+                  <%= link_to '#', class: 'btn btn-primary disabled' do %>
+                    <span class="badge">
+                      <%= t('comments.title') %>: <%= organization.comments.count %>
+                    </span>
+                  <% end %>
+                <% end %>
             <% end %>
           </div>
         </div>
