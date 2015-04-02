@@ -21,10 +21,9 @@ class User < ActiveRecord::Base
   validates :password,
             length: { minimum: 6 }
   validates :email,
-            presence: true,
             format:     { with: VALID_EMAIL_REGEX },
             uniqueness: { case_sensitive: false },
-            allow_blank: true
+            unless: "['twitter', 'google_oauth2'].include? provider"
   validates :name,
             presence: true,
             length: { maximum: 50 }
@@ -35,7 +34,6 @@ class User < ActiveRecord::Base
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
-      user.email = auth.info.email.downcase
       user.password = SecureRandom.urlsafe_base64
     end
   end
