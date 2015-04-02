@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       if Rails.env.production?
         #UserMailer.delay.welcome_email(@user)
+        UserMailer.welcome_email(@user).deliver_now
       else
         UserMailer.welcome_email(@user).deliver_now
       end

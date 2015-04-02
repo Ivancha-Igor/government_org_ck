@@ -32,7 +32,9 @@
 
       <li class="list-group-item">
         <b><%= t('organizations.tags') %>:</b>
-        <%= @organization.all_tags %>
+        <% @organization.tags.each do |tag| %>
+          <%= link_to tag.name, organizations_path(tag) %>
+        <% end %>
       </li>
       <li class="list-group-item">
         <b><%= t('organizations.lat') %>:</b>

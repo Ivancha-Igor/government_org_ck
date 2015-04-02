@@ -5,10 +5,10 @@ Rails.application.routes.draw do
       resources :comments
     end
 
-    get 'pages/home', as: 'home'
+    get 'home' => 'pages#home', as: 'home'
     root 'pages#home'
 
-    get 'sessions/login'
+    get 'login' => 'sessions#login', as: 'login'
     get 'sessions/logout'
     post 'sessions' => 'sessions#create'
 
@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get 'tags/:tag', to: 'organizations#index', as: 'tag'
 
     get 'search' => 'pages#search', as: 'search'
+    get '*path', to: redirect("/#{I18n.default_locale}")
   end
 
   get '*path', to: redirect("/#{I18n.default_locale}/%{path}")

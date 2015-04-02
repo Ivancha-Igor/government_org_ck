@@ -43,16 +43,17 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.smtp_settings = {
       :port => '587',
       :address => 'smtp.mandrillapp.com',
       :user_name => ENV['MANDRILL_USERNAME'],
       :password => ENV['MANDRILL_APIKEY'],
-      :authentication => :plain
+      :authentication => :plain,
+      enable_starttls_auto: true
   }
   ActionMailer::Base.delivery_method = :smtp
   config.action_controller.include_all_helpers = true
-  ActionMailer::Base.default :from => "Government<government.com>"
+  ActionMailer::Base.default :from => "Organizations-ck<organizations-ck.herokuapp.com>"
 end

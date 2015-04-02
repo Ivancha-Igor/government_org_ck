@@ -36,7 +36,7 @@
           <li class="current"><%= t('menu.current') %>, <%= current_user.name %></li>
           <li><%= link_to t('menu.logout'), sessions_logout_path %></li>
         <% else %>
-          <li><%= link_to t('menu.login'), sessions_login_path %></li>
+          <li><%= link_to t('menu.login'), login_path %></li>
           <li><%= link_to t('menu.registr'), registration_path %></li>
         <% end %>
       </ul>

@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 </head>
 <body>
-<h1>Hi <%= @user.name %>!</h1>
+<div class="email-head" style="padding: 10px 30px 5px 30px;background-color: #101010;background-image: linear-gradient(to bottom, #101010, #2C2D2D);">
+  <h1 style="color: #9d9d9d;font-family: verdana, arial, helvetica, sans-serif;">Organizations-ck</h1>
+</div>
+<div class="email-body" style="background: #F2F2F2;border: rgb(41, 44, 47) 4px solid;border-radius: 1px;padding: 30px;">
+  <h2 style="color: #9d9d9d;font-family: verdana, arial, helvetica, sans-serif;">Welcome to Organizations-ck!</h2>
+  <h3 style="color: #9d9d9d;font-family: verdana, arial, helvetica, sans-serif;">Thanks for signing up, <%= @user.name %>!</h3>
+</div>
 </body>
 </html>
