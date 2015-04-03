@@ -78,11 +78,11 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 =begin
   config.action_mailer.default_url_options = {
-      :host => 'afternoon-gorge-7108.herokuapp.com',
+      :host => 'organizations-ck.herokuapp.com',
       :protocol => 'https'
   }
-  config.action_mailer.default_url_options = { :host => 'afternoon-gorge-7108.herokuapp.com'}
-  Rails.application.routes.default_url_options[:host] = 'afternoon-gorge-7108.herokuapp.com'
+  config.action_mailer.default_url_options = { :host => 'organizations-ck.herokuapp.com'}
+  Rails.application.routes.default_url_options[:host] = 'organizations-ck.herokuapp.com'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
@@ -93,10 +93,11 @@ Rails.application.configure do
       :user_name => ENV['MANDRILL_USERNAME'],
       :password => ENV['MANDRILL_APIKEY'],
       :domain => 'heroku.com',
-      :authentication => :plain
+      :authentication => :plain,
+      enable_starttls_auto: true
   }
   ActionMailer::Base.delivery_method = :smtp
   config.action_controller.include_all_helpers = true
-  ActionMailer::Base.default :from => "MyShop<afternoon-gorge-7108.herokuapp.com>"
+  ActionMailer::Base.default :from => "Organizations-ck<organizations-ck.herokuapp.com>"
 =end
 end

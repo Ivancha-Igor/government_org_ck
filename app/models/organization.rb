@@ -40,8 +40,8 @@ class Organization < ActiveRecord::Base
     self.tags.map(&:name).join(', ')
   end
 
-  def self.tagged_with(name)
-    Tag.find_by_name!(name).organizations
+  def self.tagged_with(tag)
+    Tag.find_by_id!(tag).organizations
   end
 
   scope :search, -> search { joins(:tags).where('title LIKE ? OR tags.name LIKE ?', "%#{search}%", "%#{search}%").uniq}
