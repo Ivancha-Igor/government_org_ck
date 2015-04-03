@@ -100,4 +100,7 @@ Rails.application.configure do
   config.action_controller.include_all_helpers = true
   ActionMailer::Base.default :from => "Organizations-ck<organizations-ck.herokuapp.com>"
 
+  config.after_initialize do
+    Delayed::Job.scaler = :heroku_cedar
+  end
 end
