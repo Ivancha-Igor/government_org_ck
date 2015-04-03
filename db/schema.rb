@@ -75,7 +75,6 @@ ActiveRecord::Schema.define(version: 20150403100722) do
     t.datetime "updated_at",  null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "all_tags"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -96,5 +95,7 @@ ActiveRecord::Schema.define(version: 20150403100722) do
     t.string   "provider"
     t.string   "uid"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
