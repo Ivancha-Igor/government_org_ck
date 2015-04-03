@@ -17,6 +17,7 @@ class Comment < ActiveRecord::Base
   has_ancestry
 
   validates_presence_of :body
+  validates :body, obscenity: { sanitize: true, replacement: :garbled }
 
   after_create :update_organization
   def update_organization

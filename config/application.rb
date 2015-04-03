@@ -8,6 +8,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "action_view/railtie"
 require "sprockets/railtie"
+require "obscenity/active_model"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -35,5 +36,10 @@ module GovernmentOrgCk
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
     # To use Delayed Job
     config.active_job.queue_adapter = :delayed_job
+
+    Obscenity.configure do |config|
+      config.blacklist   = "config/filters/profanity.yml"
+      config.replacement = :garbled
+    end
   end
 end
