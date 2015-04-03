@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327092009) do
+ActiveRecord::Schema.define(version: 20150403100722) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 20150327092009) do
   add_index "comments", ["ancestry"], name: "index_comments_on_ancestry"
   add_index "comments", ["organization_id"], name: "index_comments_on_organization_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
 
   create_table "organization_tags", force: :cascade do |t|
     t.integer  "organization_id"
@@ -59,6 +75,7 @@ ActiveRecord::Schema.define(version: 20150327092009) do
     t.datetime "updated_at",  null: false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "all_tags"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -79,7 +96,5 @@ ActiveRecord::Schema.define(version: 20150327092009) do
     t.string   "provider"
     t.string   "uid"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
