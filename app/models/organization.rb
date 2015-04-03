@@ -29,6 +29,7 @@ class Organization < ActiveRecord::Base
   after_validation :geocode
 
   translates :title, :description, :address
+  scope :alphabetically, -> { order('title ASC') }
 
   def all_tags=(names)
     self.tags = names.split(',').map do |name|
