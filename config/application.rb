@@ -33,5 +33,7 @@ module GovernmentOrgCk
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+    # To use Delayed Job
+    config.active_job.queue_adapter = :delayed_job
   end
 end

@@ -49,8 +49,12 @@ end
 
 # gems for heroku
 group :production do
+  gem 'workless'
   gem 'pg', '0.18.1'
   gem 'rails_12factor', '0.0.3'
+  # Use the active record backend for delayed jobs
+  gem 'delayed_job_active_record'
+  gem 'daemons'
 end
 
 gem 'bootstrap-sass', '~> 3.3.0'
