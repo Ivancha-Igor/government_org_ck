@@ -1,4 +1,4 @@
-<h1 class="text-center"><%= t('users.title') %></h1>
+<% content_for(:page_title) {t('users.title')} %>
 <%= form_for @user, html: {class: 'form-horizontal new_user'} do |f| %>
 
     <% if @user.errors.any? %>

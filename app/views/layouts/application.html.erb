@@ -11,6 +11,9 @@
 <body onload="initialize()">
 
 <%= render 'layouts/header' %>
+<% if content_for?(:page_title) %>
+    <h1 class="text-center"><%= yield :page_title %></h1>
+<% end %>
 <%= yield %>
 <%= render 'layouts/footer' %>
 

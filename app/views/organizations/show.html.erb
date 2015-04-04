@@ -1,7 +1,9 @@
 <% if notice %>
     <p id="notice"><%= notice %></p>
 <% end %>
-<h1 class="text-center"><%= @organization.title %></h1>
+<% content_for(:page_title) do %>
+    <%= @organization.title %>
+<% end %>
 <div class="row-fluid">
   <div class="col-sm-5">
     <ul class="list-group">
