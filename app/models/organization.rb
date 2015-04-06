@@ -15,8 +15,8 @@
 #
 
 class Organization < ActiveRecord::Base
-  has_many :organization_tags
-  has_many :tags, through: :organization_tags
+  has_many :organization_tags, dependent: :destroy
+  has_many :tags, through: :organization_tags, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   validates :title,
