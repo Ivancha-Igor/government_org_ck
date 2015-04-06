@@ -5,7 +5,7 @@ class OrganizationsController < ApplicationController
     if params[:tag].present?
       @organizations = Organization.tagged_with(params[:tag])
     else
-      @organizations = Organization.alphabetically
+      @organizations = Organization.select('organizations.*, lower(organizations.title)').order('lower(organizations.title) ASC')
     end
     @organizations = @organizations.page(params[:page]).per(15)
   end
