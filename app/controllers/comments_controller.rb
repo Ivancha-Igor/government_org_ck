@@ -28,6 +28,9 @@ class CommentsController < ApplicationController
       @comment.delete
     elsif current_user && current_user.admin?
       @comment.delete
+    else
+      redirect_to :back, notice: t('comments.warning')
+      return
     end
     redirect_to @organization
   end
