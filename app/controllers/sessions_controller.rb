@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      redirect_to :back
+      redirect_to :back, notice: t('messages.session_back')
     end
   end
 
