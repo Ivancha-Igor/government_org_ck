@@ -13,10 +13,23 @@
           <div class="form-group">
             <div class="col-sm-12">
               <div class="col-sm-4">
-                <%= f.submit t('buttons.submit'), class: 'btn btn-info' %>
+                <%= f.submit t('buttons.submit'), class: 'btn btn-info', id: 'comment_submit' %>
               </div>
             </div>
           </div>
         </div>
     <% end %>
 <% end %>
+<script>
+    $(document).ready(function() {
+        var sweetAlertConfirm = function(event) {
+            swal({
+                title: '<%= t('comments.modal_success') %>',
+                type: 'success',
+                timer: 2000,
+                showConfirmButton: false
+            })
+        };
+        $('#comment_submit').on('click', sweetAlertConfirm)
+    });
+</script>

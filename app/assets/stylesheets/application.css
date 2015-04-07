@@ -12,6 +12,7 @@
  *
  *= require font-awesome
  *= require bootstrap-social
+ *= require sweet-alert
  *= require_tree .
  *= require_self
  */
