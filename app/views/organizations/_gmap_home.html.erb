@@ -17,7 +17,7 @@
         var organizationLatLng = new google.maps.LatLng(<%= organization.latitude %>, <%= organization.longitude %>);
 
         var infowindow = new google.maps.InfoWindow({content: contentString});
-        var contentString = '<%= organization.title %>';
+        var contentString = '<%= link_to organization.title, organization_path(organization) %>';
 
         var marker = new google.maps.Marker({
             position: organizationLatLng,
