@@ -9,7 +9,13 @@
             <% if current_user || current_user && current_user.admin? %>
               <span><%= link_to t('comments.delete'), [comment.organization, comment],
                                 method: :delete,
-                                data: { confirm: t('messages.confirm') },
+                                data: {
+                                        confirm: t('messages.confirm'),
+                                        :'confirm-button-text' => t('comments.modal_confirm'),
+                                        :'cancel-button-text' => t('comments.modal_cancel'),
+                                        :'confirm-button-color' => '#66CD00',
+                                        :'sweet-alert-type' => 'info'
+                                },
                                 class: 'btn btn-danger' %>
               </span>
             <% end %>
