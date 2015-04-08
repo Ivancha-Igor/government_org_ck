@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to organization_path(@organization) }
         format.js {}
       end
+      return
     end
     redirect_to :back, notice: t('comments.info')
   end
