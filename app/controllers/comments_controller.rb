@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
         format.js {}
       end
     end
+    redirect_to :back, notice: t('comments.info')
   end
 
   def update
