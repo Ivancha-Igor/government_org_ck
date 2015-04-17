@@ -1,14 +1,5 @@
 <% content_for(:page_title) {t('sessions.title')} %>
 <div class="container">
-  <% if notice %>
-    <div class="col-sm-12">
-      <div class="panel panel-warning">
-        <div class="panel-heading">
-          <p id="notice" class="panel-title"><%= notice %></p>
-        </div>
-      </div>
-    </div>
-  <% end %>
   <%= form_tag('/sessions', method: :post, html: {class: 'form-horizontal', role: 'form'}) do  %>
       <div class="row-fluid">
         <div class="col-sm-12 form-group">
