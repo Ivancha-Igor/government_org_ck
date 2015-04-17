@@ -17,7 +17,8 @@ class CommentsController < ApplicationController
       end
       return
     end
-    redirect_to :back, notice: t('comments.info')
+    flash[:success] = t('comments.info')
+    redirect_to :back
   end
 
   def update
@@ -31,7 +32,8 @@ class CommentsController < ApplicationController
     elsif current_user && current_user.admin?
       @comment.delete
     else
-      redirect_to :back, notice: t('comments.warning')
+      flash[:danger] = t('comments.warning')
+      redirect_to :back
       return
     end
     redirect_to @organization
