@@ -1,27 +1,5 @@
 <% content_for(:page_title) {t('users.title')} %>
 <%= form_for @user, html: {class: 'form-horizontal new_user'} do |f| %>
-
-    <% if @user.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this organization from being saved:</h2>
-
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
-    <% if notice %>
-        <div class="col-sm-offset-6 col-sm-6">
-          <div class="panel panel-warning">
-            <div class="panel-heading">
-              <p id="notice" class="panel-title"><%= notice %></p>
-            </div>
-          </div>
-        </div>
-    <% end %>
-
   <div class="form-group">
      <%= f.label t('users.login'), for:'inputName3', class: 'col-sm-6 control-label' %>
     <div class="col-sm-6">

@@ -16,7 +16,8 @@ class UsersController < ApplicationController
       end
       redirect_to root_path
     else
-      redirect_to :back, notice: t('messages.user_back')
+      flash[:warning] = t('messages.user_back')
+      redirect_to :back
     end
   end
 
