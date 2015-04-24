@@ -3,6 +3,7 @@
 <script>
 
     var map;
+    var prev_infowindow =false;
 
     function initialize() {
         var mapOptions = {
@@ -42,6 +43,10 @@
     function getInfoCallback(map, content) {
         var infowindow = new google.maps.InfoWindow({content: content});
         return function() {
+            if (prev_infowindow) {
+                prev_infowindow.close();
+            }
+            prev_infowindow = infowindow;
             infowindow.setContent(content);
             infowindow.open(map, this);
         };
