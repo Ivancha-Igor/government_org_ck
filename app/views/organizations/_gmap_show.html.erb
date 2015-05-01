@@ -6,9 +6,11 @@
     var map;
 
   function initialize() {
+      var isDraggable = $(document).width() > 480 ? true : false;
       var mapOptions = {
           center: new google.maps.LatLng(<%= @organization.latitude %>, <%= @organization.longitude %>),
           zoom: 16,
+          draggable: isDraggable,
           mapTypeId: google.maps.MapTypeId.ROADMAP
       };
       var map = new google.maps.Map(document.getElementById('gmap'), mapOptions);
