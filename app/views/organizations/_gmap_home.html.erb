@@ -6,8 +6,10 @@
     var prev_infowindow =false;
 
     function initialize() {
+        var isDraggable = $(document).width() > 480 ? true : false;
         var mapOptions = {
             scrollwheel: false,
+            draggable: isDraggable,
             zoom: 14,
             center: new google.maps.LatLng(49.431133, 32.04923),
             mapTypeId: 'roadmap'
