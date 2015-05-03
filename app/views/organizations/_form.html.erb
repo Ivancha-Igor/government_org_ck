@@ -1,63 +1,63 @@
 <%= form_for(@organization, html: {class: 'form-horizontal new_organization'}) do |f| %>
   <div class="row-fluid">
-    <div class="col-sm-5">
+    <div class="col-xs-12 col-lg-5">
       <div class="form-group">
-        <%= f.label t('organizations.title'), for: 'inputTitle', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label t('organizations.title'), for: 'inputTitle', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.text_field :title, class: 'form-control', id: 'inputTitle', placeholder: t('organizations.place_title') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label t('organizations.description'), for: 'inputDescription', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label t('organizations.description'), for: 'inputDescription', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.text_area :description, class: 'form-control', id: 'inputDescription', placeholder: t('organizations.description') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label t('organizations.address'), for: 'inputAddress', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label t('organizations.address'), for: 'inputAddress', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.text_field :address, class: 'form-control', id: 'inputAddress', placeholder: t('organizations.address') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label t('organizations.phone'), for: 'inputPhone', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label t('organizations.phone'), for: 'inputPhone', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.text_field :phone, class: 'form-control', id: 'inputPhone', placeholder: t('organizations.phone') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label 'Email', for: 'inputEmail', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label 'Email', for: 'inputEmail', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.email_field :email, class: 'form-control', id: 'inputEmail', placeholder: 'Email' %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label t('organizations.tags'), for: 'inputAllTags', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label t('organizations.tags'), for: 'inputAllTags', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.text_field :all_tags, class: 'form-control', id: 'inputAllTags', placeholder: t('organizations.place_tags') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label t('organizations.lat'), for: 'inputLat', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label t('organizations.lat'), for: 'inputLat', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.text_field :latitude, class: 'form-control', id: 'inputLat', placeholder: t('organizations.lat') %>
         </div>
       </div>
       <div class="form-group">
-        <%= f.label t('organizations.lng'), for: 'inputLng', class: 'col-sm-2 control-label' %>
-        <div class="col-sm-10">
+        <%= f.label t('organizations.lng'), for: 'inputLng', class: 'col-xs-2 control-label' %>
+        <div class="col-xs-10">
           <%= f.text_field :longitude, class: 'form-control', id: 'inputLng', placeholder: t('organizations.lng') %>
         </div>
       </div>
       <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
+        <div class="col-xs-offset-2 col-xs-10">
           <%= f.submit t('buttons.submit'), class: 'btn btn-info' %>
           <%= link_to t('buttons.back'), organizations_path, class: 'btn btn-default'  %>
         </div>
       </div>
     </div>
 
-    <div class="col-sm-7">
+    <div class="col-xs-12 col-lg-7">
       <%= render 'gmap' %>
     </div>
   </div>
