@@ -2,10 +2,10 @@
 
 <%= render @organizations %>
 
-<div class="col-sm-12 text-center"><%= paginate @organizations %></div>
+<div class="col-xs-12 text-center"><%= paginate @organizations %></div>
 
-<div class="row-fluid">
-  <div class="col-sm-12">
+<div class="row">
+  <div class="col-xs-12">
     <% if current_user && current_user.admin? %>
         <%= link_to t('organizations.submit'), new_organization_path, class: 'btn btn-info' %>
     <% end %>
