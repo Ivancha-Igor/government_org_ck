@@ -65,3 +65,8 @@ footer {
         overflow: hidden!important;
     }
 }
+@media (max-width: 1045px) {
+    .disabled {
+        margin-top: 10px;
+    }
+}
