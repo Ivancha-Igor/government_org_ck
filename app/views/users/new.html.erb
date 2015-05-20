@@ -1,3 +1,4 @@
+<% provide(:title) {t('users.title')} %>
 <% content_for(:page_title) {t('users.title')} %>
 <%= form_for @user, html: {class: 'form-horizontal new_user'} do |f| %>
   <div class="form-group">
