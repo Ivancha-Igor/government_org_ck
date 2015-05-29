@@ -34,7 +34,7 @@ class Organization < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :history, :globalize]
 
   def should_generate_new_friendly_id?
-    title_changed?
+    slug.blank? || title_changed?
   end
 
   def all_tags=(names)
