@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520123153) do
+ActiveRecord::Schema.define(version: 20150529085301) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -41,6 +41,19 @@ ActiveRecord::Schema.define(version: 20150520123153) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "organization_tags", force: :cascade do |t|
     t.integer  "organization_id"
@@ -76,8 +89,10 @@ ActiveRecord::Schema.define(version: 20150520123153) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "all_tags"
+    t.string   "slug"
   end
 
+  add_index "organizations", ["slug"], name: "index_organizations_on_slug"
   add_index "organizations", ["title"], name: "index_organizations_on_title"
 
   create_table "tags", force: :cascade do |t|

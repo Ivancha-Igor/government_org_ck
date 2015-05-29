@@ -29,6 +29,12 @@ class Organization < ActiveRecord::Base
   after_validation :geocode
 
   translates :title, :description, :address
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history]
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 
   def all_tags=(names)
     self.tags = names.split(',').map do |name|
