@@ -38,7 +38,7 @@ class Organization < ActiveRecord::Base
   end
 
   def to_param
-    "#{id} #{title}".parameterize
+    "#{title}".parameterize
   end
 
   def all_tags=(names)
