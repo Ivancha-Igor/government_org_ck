@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  before_action :set_organization_redirect, only: [:show]
 
   def index
     if params[:tag].present?
@@ -58,6 +59,13 @@ class OrganizationsController < ApplicationController
   end
 
   private
+    def set_organization_redirect
+      @organization = Organization.friendly.find(params[:id])
+      if request.path != organization_path(@organization)
+        redirect_to @organization, status: :moved_permanently
+      end
+    end
+
     def set_organization
       @organization = Organization.friendly.find(params[:id])
     end

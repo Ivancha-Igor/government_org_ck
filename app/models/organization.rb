@@ -24,6 +24,7 @@ class Organization < ActiveRecord::Base
             uniqueness: true
   validates :address,
             presence: true
+  validates_presence_of :slug
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :geocode
@@ -33,7 +34,7 @@ class Organization < ActiveRecord::Base
   friendly_id :title, use: [:slugged, :history]
 
   def should_generate_new_friendly_id?
-    new_record?
+    title_changed?
   end
 
   def all_tags=(names)
