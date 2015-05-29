@@ -60,14 +60,14 @@ class OrganizationsController < ApplicationController
 
   private
     def set_organization_redirect
-      @organization = Organization.friendly.find(params[:id])
+      @organization = Organization.find(params[:id])
       if request.path != organization_path(@organization)
         redirect_to @organization, status: :moved_permanently
       end
     end
 
     def set_organization
-      @organization = Organization.friendly.find(params[:id])
+      @organization = Organization.find(params[:id])
     end
 
     def organization_params
