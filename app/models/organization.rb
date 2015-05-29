@@ -31,7 +31,7 @@ class Organization < ActiveRecord::Base
 
   translates :title, :description, :address
   extend FriendlyId
-  friendly_id :title, use: [:slugged, :history]
+  friendly_id :title, use: [:slugged, :history, :globalize]
 
   def should_generate_new_friendly_id?
     title_changed?
