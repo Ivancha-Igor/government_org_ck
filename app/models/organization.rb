@@ -29,7 +29,7 @@ class Organization < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
   after_validation :geocode
 
-  translates :title, :description, :address
+  translates :title, :description, :address, :slug
   extend FriendlyId
   friendly_id :title, use: [:slugged, :history, :globalize]
 

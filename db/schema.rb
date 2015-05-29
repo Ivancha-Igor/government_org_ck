@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529085301) do
+ActiveRecord::Schema.define(version: 20150529125947) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150529085301) do
     t.string   "title"
     t.text     "description"
     t.string   "address"
+    t.string   "slug"
   end
 
   add_index "organization_translations", ["locale"], name: "index_organization_translations_on_locale"
