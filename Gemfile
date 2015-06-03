@@ -55,6 +55,7 @@ group :production do
   # Use the active record backend for delayed jobs
   gem 'delayed_job_active_record'
   gem 'daemons'
+  gem 'heroku-deflater'
 end
 
 gem 'bootstrap-sass', '~> 3.3.0'
