@@ -78,5 +78,4 @@ gem 'sweet-alert-confirm'
 # Filtering obscenity words
 gem 'obscenity'
 gem 'sitemap_generator'
-gem 'rack-zippy'
 gem 'friendly_id'

@@ -37,7 +37,6 @@ module GovernmentOrgCk
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
     # To use Delayed Job
     config.active_job.queue_adapter = :delayed_job
-    config.middleware.swap(ActionDispatch::Static, Rack::Zippy::AssetServer)
     config.middleware.use Rack::Deflater
 
     Obscenity.configure do |config|
