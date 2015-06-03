@@ -38,6 +38,7 @@ module GovernmentOrgCk
     # To use Delayed Job
     config.active_job.queue_adapter = :delayed_job
     config.middleware.swap(ActionDispatch::Static, Rack::Zippy::AssetServer)
+    config.middleware.use Rack::Deflater
 
     Obscenity.configure do |config|
       config.blacklist   = "config/filters/profanity.yml"
