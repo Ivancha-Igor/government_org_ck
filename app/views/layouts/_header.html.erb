@@ -40,8 +40,8 @@
           <li><%= link_to t('menu.registr'), registration_path %></li>
         <% end %>
       </ul>
-      <%= form_tag search_path, method: 'get', class: 'navbar-form navbar-right', id: 'live-search-form' do %>
-          <%= text_field_tag :search, params[:search], placeholder: t('menu.search'), class: 'form-control', id: 'search' %>
+      <%= form_tag search_path, method: 'get', class: 'navbar-form navbar-right', id: 'live-search-form', autocomplete: 'off' do %>
+          <%= text_field_tag :search, params[:search], placeholder: t('menu.search'), class: 'form-control', id: 'search', autocomplete: 'off' %>
           <%= submit_tag t('menu.search_action'), name: nil, class: 'btn btn-default', id: 'submit-search-query' %>
           <div id="live-search-results" class="">
             <%= render 'layouts/live_search_results' %>
