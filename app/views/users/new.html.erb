@@ -1,4 +1,5 @@
-<% provide(:title) {t('users.title')} %>
+<% meta title: t('users.title'),
+        robots: 'noindex' %>
 <% content_for(:page_title) {t('users.title')} %>
 <%= form_for @user, html: {class: 'form-horizontal new_user'} do |f| %>
   <div class="form-group">
