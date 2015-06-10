@@ -1,6 +1,5 @@
-<% provide(:title) do %>
-  <%= @organization.title %>
-<% end %>
+<% meta title:  @organization.title,
+        description: @organization.title %>
 <% content_for(:page_title) do %>
   <%= @organization.title %>
 <% end %>
