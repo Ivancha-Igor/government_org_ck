@@ -1,4 +1,6 @@
-<% provide(:title) {t('organizations.index_title')} %>
+<% meta title: t('organizations.index_title'),
+        description: t('organizations.index_description'),
+        keywords: t('organizations.index_keywords') %>
 <% content_for(:page_title) {t('organizations.index_title')} %>
 
 <%= render @organizations %>
